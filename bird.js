@@ -13,7 +13,7 @@ class Bird {
         this.isJumpPressed = false;
         this.gameOver = false;
 
-        this.#addKeyboardListeners();
+        this.#addKeyboardAndMouseListeners();
     }
 
     applyGravity() {
@@ -21,9 +21,9 @@ class Bird {
         this.speed += this.gravity;
     }
 
-    #addKeyboardListeners() {
+    #addKeyboardAndMouseListeners() {
         document.onkeydown = (event) => {
-            if (event.key == " " || event.key == "ArrowUp") {
+            if (event.key == " ") {
                 if (this.gameOver) {
                     this.resetBird();
                     ui.score = 0;
@@ -32,7 +32,17 @@ class Bird {
                     this.isJumpPressed = true;
                 }
             }
-        }
+        };
+
+        document.onclick = () => {
+            if (this.gameOver) {
+                this.resetBird();
+                ui.score = 0;
+                pipeController.resetPipes();
+            } else {
+                this.isJumpPressed = true;
+            }
+        };
     }
 
     jump() {
