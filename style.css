@@ -1,0 +1,19 @@
+body{
+    background-color: lightgray;
+    text-align: center;
+    overflow: hidden;
+}
+
+#myCanvas {
+    background-color: white;
+}
+
+.footer {
+    color: gray;
+    margin: 100px 0;
+}
+
+a{
+    color: rgb(128, 128, 255);
+    text-decoration: none;
+}
